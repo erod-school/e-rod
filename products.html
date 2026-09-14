@@ -6,6 +6,7 @@
   <meta name="description" content="Browse the breads, pastries, and cakes at North Star Bakery.">
   <title>Products | North Star Bakery</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="bakery.js" defer></script>
 </head>
 <body class="products">
   <header>
@@ -23,6 +24,20 @@
   <main>
     <h1>Fresh from our bakery</h1>
     <p>Choose something for breakfast, the family table, or a special occasion. Prices below are sample ranges; availability and final prices may vary. There is no online checkout.</p>
+
+    <section id="favorites-feature" aria-labelledby="favorites-heading" hidden>
+      <h2 id="favorites-heading">Save a little something for later</h2>
+      <p>Keep a list of treats for your next visit or pre-order inquiry. Your favorites are remembered in this browser.</p>
+      <ul id="favorite-options" class="favorite-options"></ul>
+      <div class="saved-favorites">
+        <h3>Your favorites <span id="favorites-count">(0)</span></h3>
+        <ul id="favorites-list"></ul>
+        <p id="favorites-status" role="status" aria-live="polite"></p>
+        <p id="storage-notice" role="status"></p>
+        <a href="contact.html#request-heading">Ask about your favorites</a>
+      </div>
+    </section>
+    <noscript><p>Turn on JavaScript to save favorites. You can still browse all our products below and visit the Contact page.</p></noscript>
 
     <section aria-labelledby="breads">
       <h2 id="breads">Breads</h2>

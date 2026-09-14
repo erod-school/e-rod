@@ -282,3 +282,37 @@ footer p:last-child {
     scroll-behavior: auto;
   }
 }
+
+/* Saved favorites and inline form feedback share the bakery colors. */
+[hidden] { display: none !important; }
+.favorite-options {
+  display: grid;
+  gap: 1rem;
+  padding: 0;
+  list-style: none;
+}
+.favorite-options > li {
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+}
+.favorite-options h3 { margin-top: 0; }
+.favorite-options button { margin-top: 0; width: 100%; }
+.favorite-options button[aria-pressed="true"] { background: var(--ink); }
+.saved-favorites {
+  margin: 1.25rem 0;
+  padding: 1rem;
+  background: var(--paper);
+  border-left: 4px solid var(--accent);
+  border-radius: 0.5rem;
+}
+.saved-favorites h3 { margin-top: 0; }
+.saved-favorites p:last-child { margin-bottom: 0; }
+.field-error { display: block; color: var(--accent); font-weight: 650; }
+.field-error:empty, #form-status:empty, #storage-notice:empty { display: none; }
+[aria-invalid="true"] { border: 2px solid var(--accent); }
+#form-status:not(:empty) { padding: 0.75rem; border: 2px solid var(--accent); border-radius: 0.5rem; }
+button:disabled { opacity: 0.65; cursor: default; }
+@media (min-width: 48rem) {
+  .favorite-options { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}

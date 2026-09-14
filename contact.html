@@ -6,6 +6,7 @@
   <meta name="description" content="Find North Star Bakery's sample location and hours, and prepare a pre-order or general inquiry.">
   <title>Contact | North Star Bakery</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="bakery.js" defer></script>
 </head>
 <body class="contact">
   <header>
@@ -37,46 +38,60 @@
 
     <section aria-labelledby="request-heading">
       <h2 id="request-heading">Tell us what you need</h2>
-      <p>This classroom sample form does not send requests yet. Confirm bakery contact details and connect a form service before using it for real orders.</p>
-      <form action="#" method="post">
+      <p>Classroom demo: your details are checked here, but requests are not sent to the bakery.</p>
+      <div id="contact-favorites" class="saved-favorites" hidden>
+        <h3>Your saved favorites</h3>
+        <p id="contact-favorites-list"></p>
+        <button id="use-favorites" type="button">Use saved favorites</button>
+        <p id="contact-favorites-status" role="status"></p>
+      </div>
+      <noscript><p>JavaScript is needed to check this demo request. Please enable it before submitting.</p></noscript>
+      <form id="request-form" action="#" method="post">
+        <p id="form-status" role="status" aria-live="polite" tabindex="-1"></p>
         <fieldset>
           <legend>Your contact and request details</legend>
 
           <p>
             <label for="customer-name">Name (required)</label><br>
-            <input id="customer-name" name="customer-name" type="text" autocomplete="name" required minlength="2">
+            <input id="customer-name" name="customer-name" type="text" autocomplete="name" required minlength="2" maxlength="80" aria-describedby="customer-name-error">
+            <span class="field-error" id="customer-name-error"></span>
           </p>
 
           <p>
             <label for="customer-email">Email (required)</label><br>
-            <input id="customer-email" name="customer-email" type="email" autocomplete="email" required>
+            <input id="customer-email" name="customer-email" type="email" autocomplete="email" required maxlength="254" aria-describedby="customer-email-error">
+            <span class="field-error" id="customer-email-error"></span>
           </p>
 
           <p>
             <label for="request-type">Request type (required)</label><br>
-            <select id="request-type" name="request-type" required>
+            <select id="request-type" name="request-type" required aria-describedby="request-type-error">
               <option value="">Choose a request type</option>
               <option value="pre-order">Pre-order inquiry</option>
               <option value="general-question">General question</option>
             </select>
+            <span class="field-error" id="request-type-error"></span>
           </p>
 
           <p>
-            <label for="pickup-date">Preferred pickup date</label><br>
-            <input id="pickup-date" name="pickup-date" type="date">
+            <label for="pickup-date">Preferred pickup date (required for pre-orders)</label><br>
+            <input id="pickup-date" name="pickup-date" type="date" aria-describedby="pickup-date-error">
+            <span class="field-error" id="pickup-date-error"></span>
           </p>
 
           <p>
             <label for="item-details">Item details (required)</label><br>
-            <textarea id="item-details" name="item-details" rows="5" cols="40" required minlength="10" placeholder="Tell us what you would like and how many."></textarea>
+            <textarea id="item-details" name="item-details" rows="5" cols="40" required minlength="10" maxlength="1000" aria-describedby="item-details-error" placeholder="Tell us what you would like and how many."></textarea>
+            <span class="field-error" id="item-details-error"></span>
           </p>
 
           <p>
             <label for="allergy-notes">Allergy notes, if applicable</label><br>
-            <textarea id="allergy-notes" name="allergy-notes" rows="3" cols="40" placeholder="Share any allergies or dietary questions."></textarea>
+            <textarea id="allergy-notes" name="allergy-notes" maxlength="500" aria-describedby="allergy-notes-error" rows="3" cols="40" placeholder="Share any allergies or dietary questions."></textarea>
+            <span class="field-error" id="allergy-notes-error"></span>
           </p>
         </fieldset>
-        <button type="submit">Submit request</button>
+        <button id="submit-request" type="submit" disabled>Check my request</button>
       </form>
     </section>
   </main>
