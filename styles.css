@@ -1,0 +1,284 @@
+:root {
+  color-scheme: light;
+  --paper: #fbf7f0;
+  --surface: #fffdf9;
+  --ink: #3d2b23;
+  --accent: #8b3f28;
+  --line: #dbcbb8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+h1, h2, h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(2.25rem, 7vw, 3.75rem);
+}
+
+h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+h3 {
+  margin: 1.25rem 0 0.5rem;
+  font-size: 1.25rem;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  text-decoration-thickness: 0.13em;
+}
+
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem max(1.25rem, calc((100vw - 72rem) / 2));
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+
+header img {
+  display: block;
+  width: 8rem;
+  height: auto;
+}
+
+nav {
+  width: 100%;
+}
+
+nav ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav a {
+  display: block;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  color: var(--ink);
+  font-weight: 650;
+  text-align: center;
+  text-decoration: none;
+}
+
+nav a:hover, nav a[aria-current="page"] {
+  background: var(--accent);
+  color: #fff;
+}
+
+main {
+  width: min(100%, 74.5rem);
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+main > p:first-of-type {
+  max-width: 48rem;
+  font-size: 1.15rem;
+}
+
+main > picture {
+  display: block;
+  margin: 1.5rem 0 2rem;
+}
+
+main > picture img, main > img {
+  display: block;
+  width: 100%;
+  max-height: 33rem;
+  height: auto;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+main > img {
+  margin: 1.5rem 0 2rem;
+}
+
+section {
+  margin: 1.25rem 0;
+  padding: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+}
+
+section > p:last-child {
+  margin-bottom: 0;
+}
+
+section img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+}
+
+figure {
+  margin: 1.5rem 0 0;
+  padding: 1rem;
+  background: var(--paper);
+  border-left: 4px solid var(--accent);
+  border-radius: 0.5rem;
+}
+
+figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+}
+
+audio {
+  display: block;
+  width: min(100%, 30rem);
+}
+
+address {
+  font-style: normal;
+}
+
+fieldset {
+  min-width: 0;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+}
+
+legend {
+  padding: 0 0.4rem;
+  font-weight: 700;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 0.3rem;
+  font-weight: 650;
+}
+
+input, select, textarea {
+  width: 100%;
+  max-width: 38rem;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid #9b8879;
+  border-radius: 0.45rem;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  margin-top: 1rem;
+  padding: 0.75rem 1.25rem;
+  border: 0;
+  border-radius: 0.5rem;
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--ink);
+}
+
+footer {
+  padding: 2rem max(1.25rem, calc((100vw - 72rem) / 2));
+  background: var(--ink);
+  color: #fff;
+}
+
+footer a {
+  color: #fff;
+}
+
+footer p:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 48rem) {
+  header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  nav {
+    width: auto;
+  }
+
+  nav ul {
+    display: flex;
+    gap: 0.4rem;
+  }
+
+  .index main, .contact main {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+
+  .index main > h1, .index main > p, .index main > picture,
+  .contact main > h1, .contact main > p {
+    grid-column: 1 / -1;
+  }
+
+  .index main > section, .contact main > section {
+    margin: 0;
+  }
+
+  .contact main {
+    grid-template-columns: minmax(14rem, 1fr) minmax(0, 2fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
